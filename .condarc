@@ -1,0 +1,8 @@
+ssl_verify: true
+show_channel_urls: true
+channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - bioconda
+  - conda-forge
+  - r
+  - defaults

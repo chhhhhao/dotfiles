@@ -1,0 +1,21 @@
+Bundle 'Valloric/YouCompleteMe'
+"html
+"  isnowfy only compatible with python not python3
+Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'suan/vim-instant-markdown'
+Bundle 'nelstrom/vim-markdown-preview'
+ "python sytax checker
+Bundle 'nvie/vim-flake8'
+Bundle 'vim-scripts/Pydiction'
+Bundle 'vim-scripts/indentpython.vim'
+Bundle 'tell-k/vim-autopep8'
+Bundle 'Yggdroot/indentLine'
+
+Bundle 'git://github.com/tomasr/molokai.git'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'git://github.com/edkolev/tmuxline.vim.git'
+Bundle 'klen/python-mode'
+Bundle 'w0rp/ale'
+
+
