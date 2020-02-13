@@ -21,9 +21,9 @@ set expandtab       " tabs are spaces, mainly because of python
 "" UI Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number              " show line numbers
-set relativenumber      " show relative numbering
+"set relativenumber      " show relative numbering
 set showcmd             " show command in bottom bar
-"set cursorline          " highlight current line
+set cursorline          " highlight current line
 filetype indent on      " load filetype-specific indent files
 filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
@@ -66,7 +66,7 @@ let g:pymode_options = 1
 let g:pymode_options_colorcolumn = 1
 "设置QuickFix窗口的最大，最小高度
 let g:pymode_quickfix_minheight = 3
-let g:pymode_quickfix_maxheight = 10
+let g:pymode_quickfix_maxheight = 5
 "使用python3
 let g:pymode_python = 'python3'
 "使用PEP8风格的缩进
@@ -81,22 +81,14 @@ let g:pymode_doc_bind = 'K'
 "自动检测并启用virtualenv
 let g:pymode_virtualenv = 1
 "不使用python-mode运行python代码
-let g:pymode_run = 0
+let g:pymode_run =1 
 let g:pymode_run_bind = '<Leader>r'
 "使用python-mode设置断点
 let g:pymode_breakpoint =1 
 let g:pymode_breakpoint_bind = '<leader>b'
-"启用python语法检查
-let g:pymode_lint = 1
-"修改后保存时进行检查
-let g:pymode_lint_on_write = 0
-"编辑时进行检查
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-"发现错误时不自动打开QuickFix窗口
-let g:pymode_lint_cwindow = 0
-"侧边栏不显示python-mode相关的标志
-let g:pymode_lint_signs = 0
+
+""侧边栏不显示python-mode相关的标志
+"let g:pymode_lint_signs = 0
 "let g:pymode_lint_todo_symbol = 'WW'
 "let g:pymode_lint_comment_symbol = 'CC'
 "let g:pymode_lint_visual_symbol = 'RR'
@@ -104,32 +96,31 @@ let g:pymode_lint_signs = 0
 "let g:pymode_lint_info_symbol = 'II'
 "let g:pymode_lint_pyflakes_symbol = 'FF'
 "启用重构
-let g:pymode_rope = 1
-"不在父目录下查找.ropeproject，能提升响应速度
-let g:pymode_rope_lookup_project = 0
-"光标下单词查阅文档
-let g:pymode_rope_show_doc_bind = '<C-c>d'
-"项目修改后重新生成缓存
-let g:pymode_rope_regenerate_on_write = 1
-"开启补全，并设置<C-Tab>为默认快捷键
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-let g:pymode_rope_completion_bind = '<C-Tab>'
-"<C-c>g跳转到定义处，同时新建竖直窗口打开
-let g:pymode_rope_goto_definition_bind = '<C-c>g'
-let g:pymode_rope_goto_definition_cmd = 'vnew'
-"重命名光标下的函数，方法，变量及类名
-let g:pymode_rope_rename_bind = '<C-c>rr'
-"重命名光标下的模块或包
-let g:pymode_rope_rename_module_bind = '<C-c>r1r'
+"let g:pymode_rope = 1
+""不在父目录下查找.ropeproject，能提升响应速度
+"let g:pymode_rope_lookup_project = 0
+""光标下单词查阅文档
+"let g:pymode_rope_show_doc_bind = '<C-c>d'
+""项目修改后重新生成缓存
+"let g:pymode_rope_regenerate_on_write = 1
+""开启补全，并设置<C-Tab>为默认快捷键
+"let g:pymode_rope_completion = 1
+"let g:pymode_rope_complete_on_dot = 1
+"let g:pymode_rope_completion_bind = '<C-Tab>'
+""<C-c>g跳转到定义处，同时新建竖直窗口打开
+"let g:pymode_rope_goto_definition_bind = '<C-c>g'
+"let g:pymode_rope_goto_definition_cmd = 'vnew'
+""重命名光标下的函数，方法，变量及类名
+"let g:pymode_rope_rename_bind = '<C-c>rr'
+""重命名光标下的模块或包
+"let g:pymode_rope_rename_module_bind = '<C-c>r1r'
 "开启python所有的语法高亮
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
 "高亮缩进错误
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 "高亮空格错误
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-filetype plugin on
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height =5 
 let python_highlight_all=1
@@ -138,10 +129,12 @@ inoremap jj <ESC>
 "ale
 "始终开启标志列
 let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
+let g:ale_set_highlights =1 
 "自定义error和warning图标
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
+let g:ale_linters = {'python': ['flake8'], 'reStructuredText': ['rstcheck']}
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8']}
 "在vim自带的状态栏中整合ale
 let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 "显示Linter名称,出错或警告等相关信息
@@ -163,34 +156,34 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 " 自动补全配置
-set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
-inoremap <expr> <CR>pumvisible() ? "\<C-y>" : "\<CR>"	
-inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-"youcompleteme 默认tab s-tab 和自动补全冲突
-let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>','<Tab>']
-let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
-let g:ycm_min_num_of_chars_for_completion=2 " 从第2个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=0 " 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_seed_identifiers_with_syntax=1 " 语法关键字补全
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR> "force recomile with syntastic
-nnoremap <leader>lo :lopen<CR> "open locationlist
-nnoremap <leader>lc :lclose<CR> "close locationlist
-inoremap <leader><leader> <C-x><C-o>
-"在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-"在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
+"set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif "离开插入模式后自动关闭预览窗口
+""inoremap <expr> <CR>pumvisible() ? "\<C-y>" : "\<CR>"	
+"inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+"inoremap <expr> <PageUp> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+""youcompleteme 默认tab s-tab 和自动补全冲突
+"let g:ycm_key_list_select_completion=['<c-n>']
+"let g:ycm_key_list_select_completion = ['<Down>','<Tab>']
+"let g:ycm_key_list_previous_completion=['<c-p>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
+"let g:ycm_min_num_of_chars_for_completion=2 " 从第2个键入字符就开始罗列匹配项
+"let g:ycm_cache_omnifunc=0 " 禁止缓存匹配项,每次都重新生成匹配项
+"let g:ycm_seed_identifiers_with_syntax=1 " 语法关键字补全
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR> "force recomile with syntastic
+"nnoremap <leader>lo :lopen<CR> "open locationlist
+"nnoremap <leader>lc :lclose<CR> "close locationlist
+"inoremap <leader><leader> <C-x><C-o>
+""在注释输入中也能补全
+"let g:ycm_complete_in_comments = 1
+""在字符串输入中也能补全
+"let g:ycm_complete_in_strings = 1
 "注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
