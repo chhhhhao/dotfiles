@@ -151,3 +151,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 source /Users/haochen/Library/Preferences/org.dystroy.broot/launcher/bash/br
+export PATH="/usr/local/opt/qt/bin:$PATH"
