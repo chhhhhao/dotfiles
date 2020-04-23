@@ -14,7 +14,8 @@ export PATH_TO_FX=~/javafx-sdk-13/lib
 export JAVA_12_HOME=`/usr/libexec/java_home -v 12.0`  
 export JAVA_13_HOME=`/usr/libexec/java_home -v 13.0`  
 export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`  
-
+alias g++11='g++ -g -Wall -std=c++11'
+alias g++14='g++ -g -Wall -std=c++14'
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
 alias jdk12='export JAVA_HOME=$JAVA_12_HOME'
 alias jdk13='export JAVA_HOME=$JAVA_13_HOME'
@@ -98,6 +99,7 @@ plugins=(
 	gitignore
 	last-working-dir
 	history
+    vi-mode
 )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 source $ZSH/oh-my-zsh.sh

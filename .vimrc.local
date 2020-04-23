@@ -51,14 +51,17 @@ nnoremap <expr><buffer><silent> gb  ':!zathura --synctex-forward '.line(".").':'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
+let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 --interaction=nonstopmode $*' 
 
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
-
+let s:clang_library_path='/Library/Developer/CommandLineTools/usr/lib'
+if isdirectory(s:clang_library_path)
+    let g:clang_library_path=s:clang_library_path
+endif
 
 
 
@@ -79,34 +82,34 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 "              跳转到前一个/后一个类或方法
 ""python-mode
 ""开启警告
-let g:pymode_warnings = 0
+"let g:pymode_warnings = 0
 "保存文件时自动删除无用空格
-let g:pymode_trim_whitespaces = 1
-let g:pymode_options = 1
+"let g:pymode_trim_whitespaces = 1
+"let g:pymode_options = 1
 "显示允许的最大长度的列
-let g:pymode_options_colorcolumn = 1
+"let g:pymode_options_colorcolumn = 1
 "设置QuickFix窗口的最大，最小高度
-let g:pymode_quickfix_minheight = 3
-let g:pymode_quickfix_maxheight = 5
+"let g:pymode_quickfix_minheight = 3
+"let g:pymode_quickfix_maxheight = 5
 "使用python3
-let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
 "使用PEP8风格的缩进
-let g:pymode_indent = 1
+"let g:pymode_indent = 1
 "取消代码折叠
-let g:pymode_folding = 0
+"let g:pymode_folding = 0
 "开启python-mode定义的移动方式
-let g:pymode_motion = 1
+"let g:pymode_motion = 1
 "启用python-mode内置的python文档，使用K进行查找
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
+"let g:pymode_doc = 1
+"let g:pymode_doc_bind = 'K'
 "自动检测并启用virtualenv
-let g:pymode_virtualenv = 1
+"let g:pymode_virtualenv = 1
 "不使用python-mode运行python代码
-let g:pymode_run =1 
-let g:pymode_run_bind = '<Leader>r'
+"let g:pymode_run =1 
+"let g:pymode_run_bind = '<Leader>r'
 "使用python-mode设置断点
-let g:pymode_breakpoint =1 
-let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_breakpoint =1 
+"let g:pymode_breakpoint_bind = '<leader>b'
 
 ""侧边栏不显示python-mode相关的标志
 "let g:pymode_lint_signs = 0
@@ -149,12 +152,12 @@ let python_highlight_all=1
 inoremap jj <ESC>
 "ale
 "始终开启标志列
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights =1 
+"let g:ale_sign_column_always = 1
+"let g:ale_set_highlights =1 
 "自定义error和warning图标
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
-let g:ale_linters = {'python': ['flake8'], 'reStructuredText': ['rstcheck']}
+let g:ale_linters = {'python': ['flake8'], 'reStructuredText': ['rstcheck'],'zsh': ['shell'],'c': ['all']}
 let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace', 'autopep8']}
 "在vim自带的状态栏中整合ale
 let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']

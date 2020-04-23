@@ -20,6 +20,7 @@ endglobal
 snippet template "Basic template" b
 \documentclass[a4paper]{article}
 
+\usepackage{ctex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -31,7 +32,7 @@ snippet template "Basic template" b
 % figure support
 \usepackage{import}
 \usepackage{xifthen}
-\pdfminorversion=7
+%\pdfminorversion=7
 \usepackage{pdfpages}
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
@@ -39,7 +40,8 @@ snippet template "Basic template" b
 	\import{./figures/}{#1.pdf_tex}
 }
 
-\pdfsuppresswarningpagegroup=1
+%\pdfsuppresswarningpagegroup=1
+
 
 \begin{document}
 	$0
