@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/haochen/Desktop/python/jupyter notebook/Monte_Carlo'
+let g:netrw_dirhist_3='/Users/haochen/Desktop/python/jupyter notebook/Monte_Carlo/Ising'
 let g:netrw_dirhist_2='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim/doc'
 let g:netrw_dirhist_1='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim'
 let g:netrw_dirhist_0='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim/test/files'
@@ -7,6 +9,4 @@ let g:netrw_dirhist_9='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim/test
 let g:netrw_dirhist_8='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim'
 let g:netrw_dirhist_7='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim/doc'
 let g:netrw_dirhist_6='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim'
-let g:netrw_dirhist_5='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim/test'
-let g:netrw_dirhist_4='/Users/haochen/maximum-awesome/vim/bundle/Vundle.vim'
-let g:netrw_dirhist_3='/Users/haochen/.vim'
+let g:netrw_dirhist_5='/Users/haochen/Desktop/python/jupyter notebook/Monte_Carlo/Ising'
