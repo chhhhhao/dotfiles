@@ -1,19 +1,20 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
+#export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/Cellar/mongodb-community/4.0.10/bin:$PATH
-export PATH=/var/folders/3w/f5c_2hms2l565d11ynqwzxy80000gn/T/rust_install_kyi4df9g/bin:$PATH
 # switch jdk version
 export PATH_TO_FX=~/javafx-sdk-13/lib
 export JAVA_12_HOME=`/usr/libexec/java_home -v 12.0`  
 export JAVA_13_HOME=`/usr/libexec/java_home -v 13.0`  
 export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`  
+export MANPAGER='most -s'
 alias g++11='g++ -g -Wall -std=c++11'
 alias g++14='g++ -g -Wall -std=c++14'
 alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
@@ -26,8 +27,9 @@ export ZSH="/Users/haochen/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda-mod"
-#ZSH_THEME="robbyrussell"
+
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="lambda"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
@@ -36,7 +38,6 @@ ZSH_THEME="lambda-mod"
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-#ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -134,24 +135,22 @@ source ~/.bash_profile
 # alias hideFiles='defaults write com.apple.finder AppleShowAllFiles No;killall Finder'
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-# where proxy
-proxy(){
-export http_proxy='https://chenhao123%40mail.ustc.edu.cn:E6A23BZU@light.ustclug.org:29980/'
-export https_proxy=$http_proxy
-echo "Proxy on"
-}
-#where noproxy
-noproxy(){
-unset https_proxy
-echo "Proxy off"	
-}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+if [ -n "$INSIDE_EMACS" ]; then
+  chpwd() { print -P "\033AnSiTc %d" }
+  print -P "\033AnSiTu %n"
+  print -P "\033AnSiTc %d"
+fi
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 source /Users/haochen/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export PATH="/usr/local/opt/qt/bin:$PATH"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export PATH="/usr/local/sbin:$PATH"
+export http_proxy=http://127.0.0.1:1087
+export https_proxy=http://127.0.0.1:1087

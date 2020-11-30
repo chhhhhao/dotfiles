@@ -20,8 +20,4 @@ set show-v-scrollbar true
 #粘贴版
 set selection-clipboard clipboard
 
-#默认高度，像素
-set window-height 760
 
-#默认宽度
-set window-width 1300
